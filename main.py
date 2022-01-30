@@ -168,36 +168,37 @@ def metrics_generator(df_delta_extfp, df_delta_klekfp, df_delta_maccsfp, df_kapp
     return delta_accuracy, delta_f1, delta_r2, delta_rmse, kappa_accuracy, kappa_f1, kappa_r2, kappa_rmse, mu_accuracy, mu_f1, mu_r2, mu_rmse
 
 
-def classification_heatmap(metrics):
-    heatmap(metrics, annot=True,
-            xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
+def regression_heatmap(name, metrics):
+    heat_map = heatmap(metrics, annot=True,
+                       xticklabels=("linear", "LASSO", "ridge"),
+                       yticklabels=("extfp", "klekfp", "maccsfp"))
+    figure = heat_map.get_figure()
+    figure.savefig('results/{}.png'.format(name))
 
 
-def regression_heatmap(metrics):
-    heatmap(metrics, annot=True,
-            xticklabels=("linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
+def classification_heatmap(name, metrics):
+    heat_map = heatmap(metrics, annot=True,
+                       xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
+                       yticklabels=("extfp", "klekfp", "maccsfp"))
+    figure = heat_map.get_figure()
+    figure.savefig('results/{}.png'.format(name), )
 
 
 def heatmap_generator(delta_accuracy, delta_f1, delta_r2, delta_rmse, kappa_accuracy, kappa_f1, kappa_r2,
                       kappa_rmse, mu_accuracy, mu_f1, mu_r2, mu_rmse):
+    regression_heatmap("delta_r2", delta_r2)
+    regression_heatmap("delta_rmse", delta_rmse)
+    regression_heatmap("kappa_r2", kappa_r2)
+    regression_heatmap("kappa_rmse", kappa_rmse)
+    regression_heatmap("mu_r2", mu_r2)
+    regression_heatmap("mu_rmse", mu_rmse)
 
-    regression_heatmap(delta_r2)
-    regression_heatmap(delta_rmse)
-    regression_heatmap(kappa_r2)
-    regression_heatmap(kappa_rmse)
-    regression_heatmap(mu_r2)
-    regression_heatmap(mu_rmse)
-
-    classification_heatmap(delta_accuracy)
-    classification_heatmap(delta_f1)
-    classification_heatmap(kappa_accuracy)
-    classification_heatmap(kappa_f1)
-    classification_heatmap(mu_accuracy)
-    classification_heatmap(mu_f1)
+    classification_heatmap("delta_accuracy", delta_accuracy)
+    classification_heatmap("delta_f1", delta_f1)
+    classification_heatmap("kappa_accuracy", kappa_accuracy)
+    classification_heatmap("kappa_f1", kappa_f1)
+    classification_heatmap("mu_accuracy", mu_accuracy)
+    classification_heatmap("mu_f1", mu_f1)
 
 
 def datasets_handle():
