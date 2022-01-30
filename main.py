@@ -85,8 +85,7 @@ def approximation_ki(y):
 def models_generator(data):
     X = data[data.columns[1:data.shape[1]]].copy()
     y = data[data.columns[0]].copy()
-    y[y <= 100] = 1
-    y[y > 100] = 0
+    approximation_ki(y)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1, stratify=y)
 
     y_pred_logit = logistic_regression(X_train, y_train, X_test)
@@ -100,18 +99,19 @@ def models_generator(data):
     y_pred_lasso = lasso_regression(X_train, y_train, X_test)
     y_pred_ridge = ridge_regression(X_train, y_train, X_test)
 
-    y_test[y_test <= 100] = 1
-    y_test[y_test > 100] = 0
-    # approximation_ki(y_test)
-    # approximation_ki(y_pred_linear)
-    y_pred_linear[y_pred_linear <= 100] = 1
-    y_pred_linear[y_pred_linear > 100] = 0
-    # approximation_ki(y_pred_lasso)
-    y_pred_lasso[y_pred_lasso <= 100] = 1
-    y_pred_lasso[y_pred_lasso > 100] = 0
-    # approximation_ki(y_pred_ridge)
-    y_pred_ridge[y_pred_ridge <= 100] = 1
-    y_pred_ridge[y_pred_ridge > 100] = 0
+    R2 = np.array(
+        [np.round(r2_score(y_test, y_pred_linear), decimals=2), np.round(r2_score(y_test, y_pred_lasso), decimals=2),
+         np.round(r2_score(y_test, y_pred_ridge), decimals=2)])
+
+    Rmse = np.array(
+        [np.round(np.sqrt(mean_squared_error(y_test, y_pred_linear)), decimals=2),
+         np.round(np.sqrt(mean_squared_error(y_test, y_pred_lasso)), decimals=2),
+         np.round(np.sqrt(mean_squared_error(y_test, y_pred_ridge)), decimals=2)])
+
+    approximation_ki(y_test)
+    approximation_ki(y_pred_linear)
+    approximation_ki(y_pred_lasso)
+    approximation_ki(y_pred_ridge)
 
     accuracy = np.array([np.round(accuracy_score(y_test, y_pred_logit), decimals=2),
                          np.round(accuracy_score(y_test, y_pred_forest), decimals=2),
@@ -126,14 +126,6 @@ def models_generator(data):
          np.round(f1_score(y_test, y_pred_linear), decimals=2), np.round(f1_score(y_test, y_pred_lasso), decimals=2),
          np.round(f1_score(y_test, y_pred_ridge), decimals=2)])
 
-    R2 = np.array(
-        [np.round(r2_score(y_test, y_pred_linear), decimals=2), np.round(r2_score(y_test, y_pred_lasso), decimals=2),
-         np.round(r2_score(y_test, y_pred_ridge), decimals=2)])
-
-    Rmse = np.array(
-        [np.round(np.sqrt(mean_squared_error(y_test, y_pred_linear)), decimals=2),
-         np.round(np.sqrt(mean_squared_error(y_test, y_pred_lasso)), decimals=2),
-         np.round(np.sqrt(mean_squared_error(y_test, y_pred_ridge)), decimals=2)])
     return accuracy, F1, R2, Rmse
 
 
