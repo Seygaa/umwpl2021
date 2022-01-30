@@ -104,9 +104,9 @@ def models_generator(data):
          np.round(r2_score(y_test, y_pred_ridge), decimals=2)])
 
     Rmse = np.array(
-        [np.round(np.sqrt(mean_squared_error(y_test, y_pred_linear)), decimals=2),
-         np.round(np.sqrt(mean_squared_error(y_test, y_pred_lasso)), decimals=2),
-         np.round(np.sqrt(mean_squared_error(y_test, y_pred_ridge)), decimals=2)])
+        [np.round(mean_squared_error(y_test, y_pred_linear, squared=False), decimals=2),
+         np.round(mean_squared_error(y_test, y_pred_lasso, squared=False), decimals=2),
+         np.round(mean_squared_error(y_test, y_pred_ridge, squared=False), decimals=2)])
 
     approximation_ki(y_test)
     approximation_ki(y_pred_linear)
