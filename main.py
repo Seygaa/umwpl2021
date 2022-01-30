@@ -103,13 +103,13 @@ def models_generator(data):
     y_test[y_test <= 100] = 1
     y_test[y_test > 100] = 0
     # approximation_ki(y_test)
-    #approximation_ki(y_pred_linear)
+    # approximation_ki(y_pred_linear)
     y_pred_linear[y_pred_linear <= 100] = 1
     y_pred_linear[y_pred_linear > 100] = 0
-    #approximation_ki(y_pred_lasso)
+    # approximation_ki(y_pred_lasso)
     y_pred_lasso[y_pred_lasso <= 100] = 1
     y_pred_lasso[y_pred_lasso > 100] = 0
-    #approximation_ki(y_pred_ridge)
+    # approximation_ki(y_pred_ridge)
     y_pred_ridge[y_pred_ridge <= 100] = 1
     y_pred_ridge[y_pred_ridge > 100] = 0
 
@@ -182,7 +182,7 @@ def regression_heatmap(name, metrics):
                        xticklabels=("linear", "LASSO", "ridge"),
                        yticklabels=("extfp", "klekfp", "maccsfp"))
     figure = heat_map.get_figure()
-    figure.savefig('results/{}.png'.format(name))
+    figure.savefig('results/{}.png'.format(name), dpi=heat_map.dpi)
     plt.clf()
 
 
@@ -191,7 +191,7 @@ def classification_heatmap(name, metrics):
                        xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
                        yticklabels=("extfp", "klekfp", "maccsfp"))
     figure = heat_map.get_figure()
-    figure.savefig('results/{}.png'.format(name))
+    figure.savefig('results/{}.png'.format(name), dpi=heat_map.dpi)
     plt.clf()
 
 
