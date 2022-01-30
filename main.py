@@ -174,7 +174,7 @@ def regression_heatmap(name, metrics):
                        xticklabels=("linear", "LASSO", "ridge"),
                        yticklabels=("extfp", "klekfp", "maccsfp"))
     figure = heat_map.get_figure()
-    figure.savefig('results/{}.png'.format(name), dpi=heat_map.dpi)
+    figure.savefig('results/{}.png'.format(name), dpi=figure.dpi)
     plt.clf()
 
 
@@ -183,7 +183,7 @@ def classification_heatmap(name, metrics):
                        xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
                        yticklabels=("extfp", "klekfp", "maccsfp"))
     figure = heat_map.get_figure()
-    figure.savefig('results/{}.png'.format(name), dpi=heat_map.dpi)
+    figure.savefig('results/{}.png'.format(name), dpi=figure.dpi)
     plt.clf()
 
 
