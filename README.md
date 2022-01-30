@@ -40,14 +40,14 @@ Dla modeli regjresji w celu porównania zostały wyliczone **R^2** oraz **RMSE**
 
 ### Regresja
 **Opioid Delta, metryka r^2:**<br />
-![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/delta_r^2.png?raw=true)<br /><br />
+![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/delta_r2.png?raw=true)<br /><br />
 **Opioid Delta, metryka rmse:**<br />
 ![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/delta_rmse.png?raw=true)<br /><br />
 **Opioid Kappa, metryka r^2:**<br />
-![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/kappa_r^2.png?raw=true)<br /><br />
+![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/kappa_r2.png?raw=true)<br /><br />
 **Opioid Kappa, metryka rmse:**<br />
 ![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/kappa_rmse.png?raw=true)<br /><br />
 **Opioid Mu, metryka r^2:**<br />
-![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/mu_r^2.png?raw=true)<br /><br />
+![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/mu_r2.png?raw=true)<br /><br />
 **Opioid Mu, metryka rmse:**<br />
 ![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/mu_rmse.png?raw=true)<br /><br />
