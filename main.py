@@ -168,68 +168,36 @@ def metrics_generator(df_delta_extfp, df_delta_klekfp, df_delta_maccsfp, df_kapp
     return delta_accuracy, delta_f1, delta_r2, delta_rmse, kappa_accuracy, kappa_f1, kappa_r2, kappa_rmse, mu_accuracy, mu_f1, mu_r2, mu_rmse
 
 
-def heatmap_generator_classification(delta_accuracy, delta_f1, kappa_accuracy, kappa_f1, mu_accuracy, mu_f1):
-    heatmap(delta_accuracy, annot=True,
-            xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
-
-    heatmap(delta_f1, annot=True,
-            xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
-
-    heatmap(kappa_accuracy, annot=True,
-            xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
-
-    heatmap(kappa_f1, annot=True,
-            xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
-
-    heatmap(mu_accuracy, annot=True,
-            xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
-
-    heatmap(mu_f1, annot=True,
+def classification_heatmap(metrics):
+    heatmap(metrics, annot=True,
             xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
             yticklabels=("extfp", "klekfp", "maccsfp"))
     plt.show()
 
 
-def heatmap_generator_regression(delta_r2, delta_rmse, kappa_r2, kappa_rmse, mu_r2, mu_rmse):
-    heatmap(delta_r2, annot=True,
+def regression_heatmap(metrics):
+    heatmap(metrics, annot=True,
             xticklabels=("linear", "LASSO", "ridge"),
             yticklabels=("extfp", "klekfp", "maccsfp"))
     plt.show()
 
-    heatmap(delta_rmse, annot=True,
-            xticklabels=("linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
 
-    heatmap(kappa_r2, annot=True,
-            xticklabels=("linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
+def heatmap_generator(delta_accuracy, delta_f1, delta_r2, delta_rmse, kappa_accuracy, kappa_f1, kappa_r2,
+                      kappa_rmse, mu_accuracy, mu_f1, mu_r2, mu_rmse):
 
-    heatmap(kappa_rmse, annot=True,
-            xticklabels=("linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
+    regression_heatmap(delta_r2)
+    regression_heatmap(delta_rmse)
+    regression_heatmap(kappa_r2)
+    regression_heatmap(kappa_rmse)
+    regression_heatmap(mu_r2)
+    regression_heatmap(mu_rmse)
 
-    heatmap(mu_r2, annot=True,
-            xticklabels=("linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
-
-    heatmap(mu_rmse, annot=True,
-            xticklabels=("linear", "LASSO", "ridge"),
-            yticklabels=("extfp", "klekfp", "maccsfp"))
-    plt.show()
+    classification_heatmap(delta_accuracy)
+    classification_heatmap(delta_f1)
+    classification_heatmap(kappa_accuracy)
+    classification_heatmap(kappa_f1)
+    classification_heatmap(mu_accuracy)
+    classification_heatmap(mu_f1)
 
 
 def datasets_handle():
@@ -254,8 +222,8 @@ def datasets_handle():
         df_mu_klekfp,
         df_mu_maccsfp)
 
-    heatmap_generator_classification(delta_accuracy, delta_f1, kappa_accuracy, kappa_f1, mu_accuracy, mu_f1)
-    heatmap_generator_regression(delta_r2, delta_rmse, kappa_r2, kappa_rmse, mu_r2, mu_rmse)
+    heatmap_generator(delta_accuracy, delta_f1, delta_r2, delta_rmse, kappa_accuracy, kappa_f1, kappa_r2,
+                      kappa_rmse, mu_accuracy, mu_f1, mu_r2, mu_rmse)
 
 
 if __name__ == '__main__':
