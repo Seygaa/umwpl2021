@@ -24,6 +24,7 @@ Wyniki zostały przedstawione na 3 sposoby:<br />
 3. Wprowadzenie zaokrąglenia wyników modeli regresji (punkt odcięcia wartości Ki = 100) w celu miarodajnego porównania ich z wynikami modeli klasyfikacji<br />
 Dla modeli regjresji w celu porównania zostały wyliczone **R^2** oraz **RMSE**. Natomiast dla modeli klasyfikacji **acuuracy** oraz **F1**. Każdy wynik zostaje wypisany oraz na jego podstawie stworzona została heatmap'a w celu wizualizacji wyników.
 
+### Klasyfikacja
 **Opioid Delta, metryka accuracy:**<br />
 ![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/delta_accuracy.png?raw=true)<br /><br />
 **Opioid Delta, metryka F1:**<br />
@@ -36,3 +37,17 @@ Dla modeli regjresji w celu porównania zostały wyliczone **R^2** oraz **RMSE**
 ![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/mu_accuracy.png?raw=true)<br /><br />
 **Opioid Mu, metryka F1:**<br />
 ![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/mu_f1.png?raw=true)<br /><br />
+
+### Regresja
+**Opioid Delta, metryka r^2:**<br />
+![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/delta_r^2.png?raw=true)<br /><br />
+**Opioid Delta, metryka rmse:**<br />
+![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/delta_rmse.png?raw=true)<br /><br />
+**Opioid Kappa, metryka r^2:**<br />
+![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/kappa_r^2.png?raw=true)<br /><br />
+**Opioid Kappa, metryka rmse:**<br />
+![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/kappa_rmse.png?raw=true)<br /><br />
+**Opioid Mu, metryka r^2:**<br />
+![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/mu_r^2.png?raw=true)<br /><br />
+**Opioid Mu, metryka rmse:**<br />
+![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/mu_rmse.png?raw=true)<br /><br />
