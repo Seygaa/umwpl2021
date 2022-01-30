@@ -40,14 +40,14 @@ Każdy wynik zostaje wypisany oraz na jego podstawie stworzona została heatmap'
 
 ### Regresja
 **Receptor Delta, metryka r^2:**<br />
-![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/delta_r2.png?raw=true)<br /><br />
+
 **Receptor Delta, metryka rmse:**<br />
-![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/delta_rmse.png?raw=true)<br /><br />
+
 **Receptor Kappa, metryka r^2:**<br />
-![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/kappa_r2.png?raw=true)<br /><br />
+
 **Receptor Kappa, metryka rmse:**<br />
-![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/kappa_rmse.png?raw=true)<br /><br />
+
 **Receptor Mu, metryka r^2:**<br />
-![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/mu_r2.png?raw=true)<br /><br />
+
 **Receptor Mu, metryka rmse:**<br />
-![alt text](https://github.com/Seygaa/umwpl2021/blob/main/results/mu_rmse.png?raw=true)<br /><br />
+
