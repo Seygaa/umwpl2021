@@ -144,10 +144,16 @@ def metrics_generator(df_delta_extfp, df_delta_klekfp, df_delta_maccsfp, df_kapp
 
     delta_accuracy = np.array((accuracy_delta_extfp, accuracy_delta_klekfp, accuracy_delta_maccsfp))
     delta_f1 = np.array((F1_delta_extfp, F1_delta_klekfp, F1_delta_maccsfp))
+    delta_r2 = np.array((R2_delta_extfp, R2_delta_klekfp, R2_delta_maccsfp))
+    delta_rmse = np.array((Rmse_delta_extfp, Rmse_delta_klekfp, Rmse_delta_maccsfp))
     kappa_accuracy = np.array((accuracy_kappa_extfp, accuracy_kappa_klekfp, accuracy_kappa_maccsfp))
     kappa_f1 = np.array((F1_kappa_extfp, F1_kappa_klekfp, F1_kappa_maccsfp))
+    kappa_r2 = np.array((R2_kappa_extfp, R2_kappa_klekfp, R2_kappa_maccsfp))
+    kappa_rmse = np.array((Rmse_kappa_extfp, Rmse_kappa_klekfp, Rmse_kappa_maccsfp))
     mu_accuracy = np.array((accuracy_mu_extfp, accuracy_mu_klekfp, accuracy_mu_maccsfp))
     mu_f1 = np.array((F1_mu_extfp, F1_mu_klekfp, F1_mu_maccsfp))
+    mu_r2 = np.array((R2_mu_extfp, R2_mu_klekfp, R2_mu_maccsfp))
+    mu_rmse = np.array((Rmse_mu_extfp, Rmse_mu_klekfp, Rmse_mu_maccsfp))
 
     print_results("delta_extfp", accuracy_delta_extfp, F1_delta_extfp, R2_delta_extfp, Rmse_delta_extfp)
     print_results("delta_klekfp", accuracy_delta_klekfp, F1_delta_klekfp, R2_delta_klekfp, Rmse_delta_klekfp)
@@ -159,10 +165,10 @@ def metrics_generator(df_delta_extfp, df_delta_klekfp, df_delta_maccsfp, df_kapp
     print_results("mu_klekfp", accuracy_mu_klekfp, F1_mu_klekfp, R2_mu_klekfp, Rmse_mu_klekfp)
     print_results("mu_maccsfp", accuracy_mu_maccsfp, F1_mu_maccsfp, R2_mu_maccsfp, Rmse_mu_maccsfp)
 
-    return delta_accuracy, delta_f1, kappa_accuracy, kappa_f1, mu_accuracy, mu_f1
+    return delta_accuracy, delta_f1, delta_r2, delta_rmse, kappa_accuracy, kappa_f1, kappa_r2, kappa_rmse, mu_accuracy, mu_f1, mu_r2, mu_rmse
 
 
-def heatmap_generator(delta_accuracy, delta_f1, kappa_accuracy, kappa_f1, mu_accuracy, mu_f1):
+def heatmap_generator_classification(delta_accuracy, delta_f1, kappa_accuracy, kappa_f1, mu_accuracy, mu_f1):
     heatmap(delta_accuracy, annot=True,
             xticklabels=("logistic", "random forest", "SVM", "naive bayes", "linear", "LASSO", "ridge"),
             yticklabels=("extfp", "klekfp", "maccsfp"))
@@ -194,6 +200,38 @@ def heatmap_generator(delta_accuracy, delta_f1, kappa_accuracy, kappa_f1, mu_acc
     plt.show()
 
 
+def heatmap_generator_regression(delta_r2, delta_rmse, kappa_r2, kappa_rmse, mu_r2, mu_rmse):
+    heatmap(delta_r2, annot=True,
+            xticklabels=("linear", "LASSO", "ridge"),
+            yticklabels=("extfp", "klekfp", "maccsfp"))
+    plt.show()
+
+    heatmap(delta_rmse, annot=True,
+            xticklabels=("linear", "LASSO", "ridge"),
+            yticklabels=("extfp", "klekfp", "maccsfp"))
+    plt.show()
+
+    heatmap(kappa_r2, annot=True,
+            xticklabels=("linear", "LASSO", "ridge"),
+            yticklabels=("extfp", "klekfp", "maccsfp"))
+    plt.show()
+
+    heatmap(kappa_rmse, annot=True,
+            xticklabels=("linear", "LASSO", "ridge"),
+            yticklabels=("extfp", "klekfp", "maccsfp"))
+    plt.show()
+
+    heatmap(mu_r2, annot=True,
+            xticklabels=("linear", "LASSO", "ridge"),
+            yticklabels=("extfp", "klekfp", "maccsfp"))
+    plt.show()
+
+    heatmap(mu_rmse, annot=True,
+            xticklabels=("linear", "LASSO", "ridge"),
+            yticklabels=("extfp", "klekfp", "maccsfp"))
+    plt.show()
+
+
 def datasets_handle():
     df_delta_extfp = pd.read_csv('datasets/delta_opioid_ExtFP_ready.csv').dropna()
     df_delta_klekfp = pd.read_csv('datasets/delta_opioid_KlekFP_ready.csv').dropna()
@@ -205,17 +243,19 @@ def datasets_handle():
     df_mu_klekfp = pd.read_csv('datasets/mu_opioid_KlekFP_ready.csv').dropna()
     df_mu_maccsfp = pd.read_csv('datasets/mu_opioid_MACCSFP_ready.csv').dropna()
 
-    delta_accuracy, delta_f1, kappa_accuracy, kappa_f1, mu_accuracy, mu_f1 = metrics_generator(df_delta_extfp,
-                                                                                               df_delta_klekfp,
-                                                                                               df_delta_maccsfp,
-                                                                                               df_kappa_extfp,
-                                                                                               df_kappa_klekfp,
-                                                                                               df_kappa_maccsfp,
-                                                                                               df_mu_extfp,
-                                                                                               df_mu_klekfp,
-                                                                                               df_mu_maccsfp)
+    delta_accuracy, delta_f1, delta_r2, delta_rmse, kappa_accuracy, kappa_f1, kappa_r2, kappa_rmse, mu_accuracy, mu_f1, mu_r2, mu_rmse = metrics_generator(
+        df_delta_extfp,
+        df_delta_klekfp,
+        df_delta_maccsfp,
+        df_kappa_extfp,
+        df_kappa_klekfp,
+        df_kappa_maccsfp,
+        df_mu_extfp,
+        df_mu_klekfp,
+        df_mu_maccsfp)
 
-    heatmap_generator(delta_accuracy, delta_f1, kappa_accuracy, kappa_f1, mu_accuracy, mu_f1)
+    heatmap_generator_classification(delta_accuracy, delta_f1, kappa_accuracy, kappa_f1, mu_accuracy, mu_f1)
+    heatmap_generator_regression(delta_r2, delta_rmse, kappa_r2, kappa_rmse, mu_r2, mu_rmse)
 
 
 if __name__ == '__main__':
