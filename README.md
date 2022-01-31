@@ -6,7 +6,7 @@ W projekcie postanowiłyśmy porównać skuteczność różnych metod Regresji i
 **Receptory opioidowe**:  <br />
 -**µ**: Pobudzenie powoduje zniesienie bólu (łącznie 4939 związków) <br />
 -**κ**: Pobudzenie powoduje zwężenie źrenic i sedację (łącznie 4628 związków) <br />
--**δ**: Pobudzenie powoduje zniesienie bólu (łąćznie 4906 związków) <br />
+-**δ**: Pobudzenie powoduje zniesienie bólu (łącznie 4906 związków) <br />
 <br />
 **Fingerprinty:** <br />
 -**Fingerprint Klekota**: sposób reprezentacji związku, w którym kodowane są ugrupowania, które często występują w substancjach aktywnych (4860 bitów) <br />
@@ -15,7 +15,7 @@ W projekcie postanowiłyśmy porównać skuteczność różnych metod Regresji i
 <br /> 
 
 ## Uruchamianie
-W celu uruchomienia programu wystarczy wywołać funkcję **datasets_handle()** w głównym pliku projektu **main**.
+W celu uruchomienia programu wystarczy wywołać funkcję **datasets_handle()** w głównym pliku projektu **main**. Wyniki pisemne wypisywane są na ekran, natomiast heatmapy porównań między modelami zaopisywane są w folderze **results**
 
 ## Wyniki
 Wyniki zostały przedstawione na 3 sposoby:<br />
