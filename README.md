@@ -15,7 +15,7 @@ W projekcie postanowiłyśmy porównać skuteczność różnych metod Regresji i
 <br /> 
 
 ## Uruchamianie
-W celu uruchomienia programu wystarczy wywołać funkcję **datasets_handle()** w głównym pliku projektu **main**. Wyniki pisemne wypisywane są na ekran, natomiast heatmapy porównań między modelami zaopisywane są w folderze **results**
+W celu uruchomienia programu wystarczy wywołać funkcję **datasets_handle()** w głównym pliku projektu **main**. Wyniki pisemne wypisywane są na ekran, natomiast heatmapy porównań między modelami zaopisywane są w folderze **results**.
 
 ## Wyniki
 Wyniki zostały przedstawione na 3 sposoby:<br />
