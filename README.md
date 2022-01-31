@@ -2,7 +2,7 @@
 Przewidywanie wartości powinowactwa związków do danego receptora metodami uczenia maszynowego - przewidywanie konkretnych wartości Ki vs. podział na klasy aktywny/nieaktywny. Porównanie skuteczności różnych podejść.
 
 ## Podejście do problemu
-W projekcie postanowiłyśmy porównać skuteczność różnych metod Regresji i Klasyfikacji w przewidywaniu wartości Ki oraz w klasyfikacji związków jako aktywny/nieaktywny. W tym celu zostały stworzone modele Regresji Liniowej, LASSO i Ridge oraz Regresji Logistycznej, Random Forest, SVC i Naive Bayes. Modele były trenowane na 9 zbiorach danych: dla każdego z 3 receptorów opioidowych, każdy z 3 fingerprintów.<br /> <br />
+W projekcie postanowiłyśmy porównać skuteczność różnych metod Regresji i Klasyfikacji w przewidywaniu wartości Ki (dla klasyfikacji Ki zostało zastąpione jako aktywny/nieaktywny). W tym celu zostały stworzone modele Regresji Liniowej, LASSO i Ridge oraz Regresji Logistycznej, Random Forest, SVC i Naive Bayes. Modele były trenowane na 9 zbiorach danych: dla każdego z 3 receptorów opioidowych, każdy z 3 fingerprintów.<br /> <br />
 **Receptory opioidowe**:  <br />
 -**µ**: Pobudzenie powoduje zniesienie bólu (łącznie 4939 związków) <br />
 -**κ**: Pobudzenie powoduje zwężenie źrenic i sedację (łącznie 4628 związków) <br />
